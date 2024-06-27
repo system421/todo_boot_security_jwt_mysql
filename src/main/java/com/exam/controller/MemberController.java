@@ -29,6 +29,12 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
+	@GetMapping("/")
+	public String main( ) {
+		
+		return "main home";
+	}
+	
 	@GetMapping("/hello")
 	public String hello( ) {
 		
