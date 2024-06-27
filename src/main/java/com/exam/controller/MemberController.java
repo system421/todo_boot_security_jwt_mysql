@@ -29,6 +29,13 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
+	@GetMapping("/hello")
+	public String hello( ) {
+		
+		return "hello world";
+	}
+	
+	
     // 회원가입
 	@PostMapping(value={"/users"})
 	public ResponseEntity<Member>  createMember(@Valid @RequestBody Member member) {
