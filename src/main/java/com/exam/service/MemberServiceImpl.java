@@ -2,23 +2,23 @@ package com.exam.service;
 
 import org.springframework.stereotype.Service;
 
+import com.exam.config.MemberMapper;
 import com.exam.dto.Member;
-import com.exam.repository.MemberMyBatisRepository;
 
 @Service
 public class MemberServiceImpl implements MemberService{
 
-	MemberMyBatisRepository memberMyBatisRepository;
+	MemberMapper memberMapper;
 	
-	
-	public MemberServiceImpl(MemberMyBatisRepository memberMyBatisRepository) {
-		this.memberMyBatisRepository = memberMyBatisRepository;
+	public MemberServiceImpl(MemberMapper memberMapper) {
+		this.memberMapper = memberMapper;
 	}
 
 
 	@Override
 	public Member save(Member member) {
-		return memberMyBatisRepository.save(member);		
+		int n = memberMapper.save(member);
+		return member;		
 	}
 
 }

@@ -38,8 +38,8 @@ public class TodoController {
 
 	// Todo 목록보기
 	@GetMapping("/users/{userid}/todos")
-	public List<Todo> listAllTodos(@PathVariable String userid) {
-		List<Todo> todos = todoMyBatisService.listAllTodos(userid);
+	public List<Todo> findAll(@PathVariable String userid) {
+		List<Todo> todos = todoMyBatisService.findAll(userid);
 		return todos;
 	}
 	

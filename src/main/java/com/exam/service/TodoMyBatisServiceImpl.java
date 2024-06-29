@@ -5,46 +5,45 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
+import com.exam.config.TodoMapper;
 import com.exam.dto.Todo;
-import com.exam.repository.TodoMyBatisRepository;
 
 @Service
 public class TodoMyBatisServiceImpl implements TodoMyBatisService {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
-	TodoMyBatisRepository todoJdbcRepository;
+	TodoMapper todoMapper;
 	
-	public TodoMyBatisServiceImpl(TodoMyBatisRepository todoJdbcRepository) {
+	public TodoMyBatisServiceImpl(TodoMapper todoMapper) {
 		logger.info("logger:{}", "TodoServiceImpl");
-		this.todoJdbcRepository = todoJdbcRepository;
+		this.todoMapper = todoMapper;
 	}
 
 	@Override
 	public Todo save(Todo todo) {
-		return todoJdbcRepository.save( todo);
+		int n = todoMapper.save( todo);
+		return todo;
 	}
 
 	@Override
 	public void deleteById(long id) {
-		todoJdbcRepository.deleteById(id);
+		todoMapper.deleteById(id);
 	}
 
 	@Override
 	public Todo findById(long id) {
-		return todoJdbcRepository.findById(id);
+		return todoMapper.findById(id);
 	}
 
 	@Override
-	public List<Todo> listAllTodos(String userid) {
-		return todoJdbcRepository.listAllTodos(userid);
+	public List<Todo> findAll(String userid) {
+		return todoMapper.findAll(userid);
 	}
 
 	@Override
 	public void update(Todo todo) {
-		todoJdbcRepository.update(todo);
+		todoMapper.update(todo);
 	}
 	
 }

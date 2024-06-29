@@ -10,7 +10,7 @@ public interface TodoMyBatisService {
 	public void update(Todo todo);
 	public void deleteById(long id);
 	public Todo findById(long id);
-	public List<Todo> listAllTodos(String userid);
+	public List<Todo> findAll(String userid);
 	
 	
 }
