@@ -10,7 +10,6 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@MapperScan("com.exam.config")
 public class Application  extends SpringBootServletInitializer{
 
 	public static void main(String[] args) {
