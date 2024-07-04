@@ -9,8 +9,7 @@ create table todo
     ( id bigint not null auto_increment COMMENT 'TODO 번호',
       userid varchar(255) not null COMMENT 'TODO 아이디',
       description varchar(255) not null COMMENT 'TODO 목록',
-      --targetDate date,
-      target_date date  COMMENT 'TODO 목표날짜',
+      targetDate date  COMMENT 'TODO 목표날짜',
       done boolean   COMMENT 'TODO 완료여부',
       primary key(id)
      );
