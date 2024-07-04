@@ -5,7 +5,7 @@
 <mapper namespace="com.exam.config.TodoMapper">
  
    <select id="findAll" resultType="Todo" parameterType="string">
-      select id, userid, description, target_date, done 
+      select id, userid, description, targetDate, done 
       from todo
        where userid=#{userid}
       order by id
@@ -13,13 +13,13 @@
    
    <update id="update" parameterType="Todo">
      update todo
-     set description=#{description}, target_date=#{targetDate}
+     set description=#{description}, targetDate=#{targetDate}
      where id=#{id}
    
    </update>
    
    <insert id="save" parameterType="Todo">
-      insert into todo (  userid, description, target_date, done)
+      insert into todo (  userid, description, targetDate, done)
       values (  #{userid}, #{description}, #{targetDate}, false )
    </insert> 
   
@@ -30,7 +30,7 @@
    </delete>
    
     <select id="findById" resultType="Todo" parameterType="long">
-      select id, userid, description, target_date, done
+      select id, userid, description, targetDate, done
       from todo
       where id=#{id}
    </select>
